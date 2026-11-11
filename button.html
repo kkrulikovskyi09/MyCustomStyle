@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Custom Button</title>
+        <style>
+:root {
+    --primary: #ff00ff;
+    --background: #b3b3b3;
+    --color: #444444;
+}
+
+body {
+    margin : 0;
+    padding: 0;
+    background: var(--background);
+    color: var(--color);
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100dvh;
+}
+
+button {
+    position: relative;
+    overflow: hidden;
+    background: var(--background);
+    color: var(--color);
+    border: none;
+    outline: none;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+
+    box-shadow: 
+      0px   0px 10px -10px var(--primary),
+     -5px  -5px 20px 5px rgb(255 255 255 / 0.3),
+      5px   5px 20px 5px rgb(  0   0   0 / 0.3)
+    ;
+    transition: all 250ms ease-in-out;
+}
+
+button > span.onHover {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    background: var(--background);
+    color: var(--primary);
+    transform: translateY(100%);
+    transition: transform 250ms ease;
+}
+
+button:hover > span.onHover,
+button:active > span.onHover {
+    transform: translateY(0);
+}
+
+button:active > span.onHover {
+    background-color: var(--primary);
+    color: white;
+}
+
+button:hover {
+    transform: scale(1.1);
+    box-shadow: 
+     0px   0px 15px 5px var(--primary),
+    -10px -10px 40px 2px rgb(200 200 200 / 0.8),
+     10px  10px 40px 2px rgb( 40  40  40 / 0.8)
+    ;
+}
+
+button:active {
+    transform: scale(0.9);
+    box-shadow: 
+     0px   0px 15px 5px var(--primary),
+    -10px -10px 40px 2px rgb(200 200 200 / 0.8),
+     10px  10px 40px 2px rgb( 40  40  40 / 0.8)
+    ;
+}
+
+        </style>
+    </head>
+    <body class="container">
+        <button id="MyButton" type="sumbit"><span>Hover me</span> <span class="onHover">Click me!</span></button>
+    </body>
+</html>
